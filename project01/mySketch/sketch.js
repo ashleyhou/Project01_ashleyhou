@@ -3,6 +3,10 @@ let increment2 = 0;
 let moveY = 100;
 let sizeInc = 0;
 let count = 1;
+let millisecond = millis();
+let xClose1 = 0;
+let xClose2 = 0;
+
 function setup() {
   // put setup code here
     createCanvas(800, 500);
@@ -11,10 +15,10 @@ function setup() {
 
 function draw() {
   // put drawing code here
-    if (count == 1) {
-        scene1();
+    scene1();
+    if (millis() > 5000) {
+        scene2();
     }
-    
 }
 
 function scene1() {
@@ -30,12 +34,23 @@ function scene1() {
         me.display();
     }
     me.display();
-    count++;
 }
 
 function scene2() {
     background(49, 56, 120);
+    drawMist1();
     drawSkyline2();
+    drawMist2();
+    let me = new Person(200, 100, -20);
+    me.display();
+    windowFrame();
+    if (millis() > 10000) {
+        curtainsClose();
+    }
+}
+
+function scene3() {
+    
 }
 
 function drawSkyline1() {
@@ -66,8 +81,32 @@ function drawSkyline2() {
     //Building(x, y, w, h, g, b)
     //g between (50, 90);
     //b between (100, 180);
-    buildA = new Building(70, 50, 150, 400, 50, 115);
+    buildA = new Building(120, 70, 120, 500, 50, 115);
+    buildB = new Building(420, 170, 70, 500, 70, 180);
+    buildC = new Building(220, 200, 160, 500, 90, 164);
+    buildD = new Building(550, 100, 90, 500, 65, 100);
+    buildE = new Building(380, 250, 190, 500, 82, 190);
+    buildF = new Building(50, 120, 70, 500, 75, 130);
+    buildG = new Building(340, 50, 60, 500, 60, 140);
+    buildH = new Building(650, 200, 120, 500, 78, 177);
+    buildI = new Building(0, 240, 90, 500, 65, 120);
+    buildJ = new Building(720, 130, 110, 500, 90, 100);
+    buildK = new Building(600, 10, 120, 500, 75, 180);
     buildA.display();
+    buildA.drawTop();
+    buildB.display();
+    buildG.display();
+    buildC.display();
+    buildK.display();
+    buildE.display();
+    buildE.drawTop();
+    buildD.display();
+    buildF.display();
+    buildH.display();
+    buildI.display();
+    buildJ.display();
+    buildJ.drawTop();
+    
 }
 
 
@@ -135,3 +174,26 @@ function drawMist2() {
     mist(-690 + increment2, 90, 40, 22);
     mistRollOver();
 }
+
+function windowFrame() {
+    strokeWeight(50);
+    stroke(0, 255);
+    line(0, 0, width, 0);
+    line(0, 0, 0, height);
+    line(width, 0, width, height);
+    line(0, height, width, height);
+    line(width/2, 0, width/2, height);
+    line(0, height/2, width, height/2);
+}
+
+function curtainsClose() {
+    if (xClose1 < width/2 && xClose2 > width/2) {
+        rect(-400 + xClose1, 0, width/2, height);
+        rect(800 + xClose2, 0, width/2, height);
+        xClose1++;
+        xClose2--;
+    }
+    fill(163, 11, 0);
+    
+}
+

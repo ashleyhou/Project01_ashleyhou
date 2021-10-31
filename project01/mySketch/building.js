@@ -15,6 +15,9 @@ class Building {
         fill(255, 239, this.b);
         for (let i = 10; i < this.w-10; i += 15) {
             for (let j = 10; j < this.h; j += 15) {
+//                if (mouseX >= this.x && mouseX <= this.w+this.x && mouseY >= this.y && mouseY <= this.h+this.y) {
+//                    fill(0);
+//                }
                 rect(this.x+i, this.y+j, 5, 5);
             }
         }
