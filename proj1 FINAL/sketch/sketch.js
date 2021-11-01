@@ -31,10 +31,10 @@ function setup() {
 }
 
 function draw() {
-    if (millis() > 11000) {
+    if (millis() > 15000) {
         scene3();
     }
-    else if (millis() > 7000) {
+    else if (millis() > 10000) {
         scene2();
     }
     else{
