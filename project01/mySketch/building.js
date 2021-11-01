@@ -62,3 +62,4 @@ class Person {
         rect(this.x + 400, this.y + 325, this.size/4 +25, 50);
     }
 }
+

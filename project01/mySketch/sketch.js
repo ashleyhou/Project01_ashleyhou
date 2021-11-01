@@ -4,8 +4,7 @@ let moveY = 100;
 let sizeInc = 0;
 let count = 1;
 let millisecond = millis();
-let xClose1 = 0;
-let xClose2 = 0;
+
 
 function setup() {
   // put setup code here
@@ -18,6 +17,9 @@ function draw() {
     scene1();
     if (millis() > 5000) {
         scene2();
+    }
+    else if (millis() > 10000) {
+        scene3();
     }
 }
 
@@ -44,14 +46,9 @@ function scene2() {
     let me = new Person(200, 100, -20);
     me.display();
     windowFrame();
-    if (millis() > 10000) {
-        curtainsClose();
-    }
 }
 
-function scene3() {
-    
-}
+
 
 function drawSkyline1() {
     //Building(x, y, w, h, g, b)
@@ -186,14 +183,4 @@ function windowFrame() {
     line(0, height/2, width, height/2);
 }
 
-function curtainsClose() {
-    if (xClose1 < width/2 && xClose2 > width/2) {
-        rect(-400 + xClose1, 0, width/2, height);
-        rect(800 + xClose2, 0, width/2, height);
-        xClose1++;
-        xClose2--;
-    }
-    fill(163, 11, 0);
-    
-}
 
